@@ -1,0 +1,11 @@
+.selector {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.selector > button {
+  height: fit-content;
+  border: none;
+  background-color: transparent;
+  color: #dc3545;
+}
