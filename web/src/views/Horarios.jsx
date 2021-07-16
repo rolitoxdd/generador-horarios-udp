@@ -15,8 +15,9 @@ const Horarios = () => {
   }
   const combinaciones = generarHorarios(ramos.ramos.filter((x) => x));
   const secciones = combinaciones[combinacionActual].secciones;
-  console.log(secciones);
-
+  const combinationChange = (combinationId) => {
+    setCombinacionActual(Number.parseInt(combinationId));
+  };
   return (
     <>
       <div
@@ -69,7 +70,14 @@ const Horarios = () => {
         <div className="col-4 pe-4">
           <div className="list-group">
             {secciones.map((s) => (
-              <InfoSeccion seccion={s} key={s.paquete} secciones={secciones} />
+              <InfoSeccion
+                seccion={s}
+                key={s.paquete}
+                combinaciones={combinaciones}
+                secciones={secciones}
+                handleCombinationChange={combinationChange}
+                combinacionActual={combinacionActual}
+              />
             ))}
           </div>
         </div>
