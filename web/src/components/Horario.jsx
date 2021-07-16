@@ -1,7 +1,6 @@
 import Card from "./Card";
 
-const Horario = ({ ramos }) => {
-  console.log(ramos);
+const Horario = ({ horario }) => {
   const bloques = {
     "08:30 - 09:50": "A",
     "10:00 - 11:20": "B",
@@ -10,8 +9,8 @@ const Horario = ({ ramos }) => {
     "14:30 - 15:50": "E",
     "16:00 - 17:20": "F",
     "17:25 - 18:45": "G",
-    "18:50 - 20:10": "H",
-    "20:15 - 21:35": "I",
+    // "18:50 - 20:10": "H",
+    // "20:15 - 21:35": "I",
   };
   return (
     <div className="container-xl">
@@ -30,21 +29,27 @@ const Horario = ({ ramos }) => {
           {Object.keys(bloques).map((b) => (
             <tr className="table-secondary" key={bloques[b]}>
               <th>{b}</th>
-              <td>
-                <Card info={ramos["LU"][bloques[b]]} />
-              </td>
-              <td>
-                <Card info={ramos["MA"][bloques[b]]} />
-              </td>
-              <td>
-                <Card info={ramos["MI"][bloques[b]]} />
-              </td>
-              <td>
-                <Card info={ramos["JU"][bloques[b]]} />
-              </td>
-              <td>
-                <Card info={ramos["VI"][bloques[b]]} />
-              </td>
+              <Card
+                info={horario["LU"][bloques[b]]}
+                bloque={["LU", bloques[b]]}
+              />
+              <Card
+                info={horario["MA"][bloques[b]]}
+                bloque={["MA", bloques[b]]}
+              />
+              <Card
+                info={horario["MI"][bloques[b]]}
+                bloque={["MI", bloques[b]]}
+              />
+              <Card
+                info={horario["JU"][bloques[b]]}
+                bloque={["JU", bloques[b]]}
+              />
+
+              <Card
+                info={horario["VI"][bloques[b]]}
+                bloque={["VI", bloques[b]]}
+              />
             </tr>
           ))}
         </tbody>
