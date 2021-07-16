@@ -14,9 +14,9 @@ def parsear_horario(horario_texto):
             "13:00 - 14:20": "D",
             "14:30 - 15:50": "E",
             "16:00 - 17:20": "F",
-            "17:25 - 18:45": "E",
-            "18:50 - 20:10": "F",
-            "20:15 - 21:35": "G"
+            "17:25 - 18:45": "G",
+            "18:50 - 20:10": "H",
+            "20:15 - 21:35": "I"
         }
         horarios_evento = horario_texto.split(";")
         horarios_evento = [[x[:-14].strip(), x[-13:]] for x in horarios_evento]
@@ -36,6 +36,8 @@ def parsear_csv(texto):
     ramos = {}
 
     for linea in reader(texto):
+        while(len(linea) < 12):
+            linea.append('')
         datos_evento = {
             "id_ramo": linea[0],
             "nombre": linea[1],

@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import "./App.css";
+import "../assets/styles/App.css";
 import Home from "../views/Home";
-import Horario from "../views/Horario";
+import Horarios from "../views/Horarios";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/horario" component={Horario} />
+          <Route path="/horarios" component={Horarios} />
         </Switch>
       </Router>
     </div>

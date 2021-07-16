@@ -29,7 +29,9 @@ const Home = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/horario", { ramosTomados, ramos });
+    history.push("/horarios", {
+      ramos: ramosTomados.map((r) => informatica[r]),
+    });
   };
 
   return (

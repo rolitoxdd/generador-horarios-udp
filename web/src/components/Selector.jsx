@@ -20,7 +20,13 @@ const Selector = ({
           Elige un ramo
         </option>
         {ramos.map((r) => (
-          <option value={r[0]} key={r[0]}>
+          <option
+            value={r[0]}
+            key={r[0]}
+            disabled={
+              ramosTomados.includes(r[0]) && ramosTomados[indice] !== r[0]
+            }
+          >
             {r[1]} - {r[0]}
           </option>
         ))}
