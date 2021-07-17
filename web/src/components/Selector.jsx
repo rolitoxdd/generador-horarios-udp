@@ -7,6 +7,7 @@ const Selector = ({
   handleSelectorChange,
   handleSelectorDelete,
 }) => {
+  console.log(ramos);
   return (
     <div className="selector">
       <select

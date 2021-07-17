@@ -1,9 +1,10 @@
 import { useHistory, Link } from "react-router-dom";
 import { useState } from "react";
 
-import generarHorarios from "../utils/generarHorarios";
 import Horario from "../components/Horario";
 import InfoSeccion from "../components/InfoSeccion";
+import Error from "../components/Error";
+import generarHorarios from "../utils/generarHorarios";
 import ordenarHorariosSegunVentanas from "../utils/ordenarHorariosSegunVentana";
 
 const Horarios = () => {
@@ -11,8 +12,8 @@ const Horarios = () => {
   const ramos = history.location.state;
   const [combinacionActual, setCombinacionActual] = useState(0);
 
-  if (!ramos) {
-    return <h1>ERRROR</h1>;
+  if (!ramos || ramos.ramos.every((x) => !x)) {
+    return <Error />;
   }
   const combinaciones = ordenarHorariosSegunVentanas(
     generarHorarios(ramos.ramos.filter((x) => x))

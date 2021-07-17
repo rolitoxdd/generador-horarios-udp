@@ -11,11 +11,10 @@ const Home = () => {
   const [ramos, setRamos] = useState([]);
   const [ramosTomados, setRamosTomados] = useState([""]);
   const history = useHistory();
-
   useEffect(() => {
     let opcionesRamos = Object.keys(ramosTotales);
     opcionesRamos = opcionesRamos.map((p) => [p, ramosTotales[p][0].nombre]);
-    setRamos(opcionesRamos);
+    setRamos(opcionesRamos.sort());
   }, []);
 
   const handleSelectorChange = (e, index) =>
