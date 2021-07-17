@@ -1,5 +1,5 @@
 import { useHistory, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Horario from "../components/Horario";
 import InfoSeccion from "../components/InfoSeccion";
@@ -11,14 +11,18 @@ const Horarios = () => {
   const history = useHistory();
   const ramos = history.location.state;
   const [combinacionActual, setCombinacionActual] = useState(0);
-
-  if (!ramos || ramos.ramos.every((x) => !x)) {
+  const [combinaciones, setCombinaciones] = useState([]);
+  useEffect(() => {
+    setCombinaciones(
+      ordenarHorariosSegunVentanas(
+        generarHorarios(ramos.ramos.filter((x) => x))
+      )
+    );
+  }, []);
+  if (!ramos || ramos.ramos.every((x) => !x) || combinaciones.length === 0) {
     return <Error />;
   }
-  const combinaciones = ordenarHorariosSegunVentanas(
-    generarHorarios(ramos.ramos.filter((x) => x))
-  );
-  const secciones = combinaciones[combinacionActual].secciones;
+  const secciones = combinaciones[combinacionActual]?.secciones;
   const combinationChange = (combinationId) => {
     setCombinacionActual(Number.parseInt(combinationId));
   };
@@ -37,7 +41,7 @@ const Horarios = () => {
         <div className="col-8" style={{ paddingRight: 0 }}>
           <Horario
             secciones={secciones}
-            horario={combinaciones[combinacionActual].horario}
+            horario={combinaciones[combinacionActual]?.horario}
           />
           <p className="">También puedes probar otras combinaciones:</p>
 
@@ -59,7 +63,11 @@ const Horarios = () => {
               <li className="page-item active">
                 <span className="page-link">{combinacionActual + 1}</span>
               </li>
-              <li className="page-item">
+              <li
+                className={`page-item ${
+                  combinacionActual + 1 === combinaciones.length && "disabled"
+                }`}
+              >
                 <button
                   disabled={combinacionActual + 1 === combinaciones.length}
                   className="page-link disabled"
@@ -78,7 +86,7 @@ const Horarios = () => {
         </div>
         <div className="col-4 pe-4" style={{ paddingLeft: 0 }}>
           <div className="list-group">
-            {secciones.map((s) => (
+            {secciones?.map((s) => (
               <InfoSeccion
                 seccion={s}
                 key={s.paquete}

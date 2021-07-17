@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 const Error = () => {
   const [segundos, setSegundos] = useState(5);
-  console.log(segundos);
+  // console.log(segundos);
   useEffect(() => {
     const timeoutID = setTimeout(() => setSegundos(segundos - 1), 1000);
     return () => clearTimeout(timeoutID);
@@ -22,7 +22,11 @@ const Error = () => {
         <div>
           <h3>Debes seleccionar al menos 1 ramo</h3>
           <p>
-            Serás redirigido a la página principal en{" "}
+            Serás redirigido a la{" "}
+            <Link to="/" className="link-info">
+              página principal
+            </Link>
+            {" en "}
             <span
               style={{
                 color: segundos <= 3 ? "red" : "black",
