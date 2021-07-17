@@ -44,7 +44,6 @@ const Selector = ({
       >
         <i className="fas fa-trash"></i>
       </button>
-      {/* <i className="fas fa-trash"></i> */}
     </div>
   );
 };

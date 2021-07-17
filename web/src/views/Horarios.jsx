@@ -19,6 +19,23 @@ const Horarios = () => {
       )
     );
   }, []);
+  if (ramos && combinaciones.length === 0) {
+    return (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
+  }
   if (!ramos || ramos.ramos.every((x) => !x) || combinaciones.length === 0) {
     return <Error mensaje="Debes seleccionar al menos 1 ramo" />;
   }
@@ -97,8 +114,13 @@ const Horarios = () => {
               />
             ))}
           </div>
-          <Link to="/" className="btn btn-outline-dark mt-3">
+          <Link to="/" className="btn btn-outline-warning mt-3 me-3">
             Volver al inicio
+          </Link>
+          <Link to="/selector" className="btn btn-outline-dark mt-3">
+            Volver al selector
+            <br />
+            de ramos
           </Link>
         </div>
       </div>
