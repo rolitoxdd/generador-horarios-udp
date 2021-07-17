@@ -101,7 +101,7 @@ const Simulador = () => {
                       value={
                         ramosTotales[ramosTomados[i]].indexOf(
                           seccionesTomadas[i]
-                        ) != -1
+                        ) !== -1
                           ? ramosTotales[ramosTomados[i]].indexOf(
                               seccionesTomadas[i]
                             )

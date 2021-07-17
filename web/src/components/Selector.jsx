@@ -10,7 +10,7 @@ const Selector = ({
   return (
     <div className="selector">
       <select
-        className="form-select mb-3 me-4"
+        className="form-select mb-3 me-2"
         name={`ramo-${ramosTomados.length}`}
         id={`ramo-${ramosTomados.length}`}
         onChange={(e) => handleSelectorChange(e, indice)}
@@ -38,7 +38,7 @@ const Selector = ({
 
       <button
         type="button"
-        className="text-center btn btn-outline-danger"
+        className="text-center btn btn-outline-danger me-2"
         onClick={(e) => handleSelectorDelete(e, indice)}
         disabled={ramosTomados.length <= 1}
       >
