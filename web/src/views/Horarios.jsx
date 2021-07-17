@@ -1,9 +1,10 @@
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useState } from "react";
 
 import generarHorarios from "../utils/generarHorarios";
 import Horario from "../components/Horario";
 import InfoSeccion from "../components/InfoSeccion";
+import ordenarHorariosSegunVentanas from "../utils/ordenarHorariosSegunVentana";
 
 const Horarios = () => {
   const history = useHistory();
@@ -13,11 +14,14 @@ const Horarios = () => {
   if (!ramos) {
     return <h1>ERRROR</h1>;
   }
-  const combinaciones = generarHorarios(ramos.ramos.filter((x) => x));
+  const combinaciones = ordenarHorariosSegunVentanas(
+    generarHorarios(ramos.ramos.filter((x) => x))
+  );
   const secciones = combinaciones[combinacionActual].secciones;
   const combinationChange = (combinationId) => {
     setCombinacionActual(Number.parseInt(combinationId));
   };
+  console.log(combinaciones.map((c) => c.horario));
   return (
     <>
       <div
@@ -35,6 +39,7 @@ const Horarios = () => {
             horario={combinaciones[combinacionActual].horario}
           />
           <p className="">También puedes probar otras combinaciones:</p>
+
           <div style={{ width: "fit-content", margin: "auto" }}>
             <ul className="pagination">
               <li
@@ -66,6 +71,9 @@ const Horarios = () => {
               </li>
             </ul>
           </div>
+          <p className="text-muted" style={{ fontSize: "12px" }}>
+            (Los horarios están ordenados según el numero de ventanas)
+          </p>
         </div>
         <div className="col-4 pe-4">
           <div className="list-group">
@@ -80,6 +88,9 @@ const Horarios = () => {
               />
             ))}
           </div>
+          <Link to="/" class="btn btn-outline-dark mt-3">
+            Volver al inicio
+          </Link>
         </div>
       </div>
     </>
