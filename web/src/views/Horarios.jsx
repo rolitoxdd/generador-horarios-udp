@@ -15,12 +15,12 @@ const Horarios = () => {
   useEffect(() => {
     setCombinaciones(
       ordenarHorariosSegunVentanas(
-        generarHorarios(ramos.ramos.filter((x) => x))
+        generarHorarios(ramos?.ramos.filter((x) => x))
       )
     );
   }, []);
   if (!ramos || ramos.ramos.every((x) => !x) || combinaciones.length === 0) {
-    return <Error />;
+    return <Error mensaje="Debes seleccionar al menos 1 ramo" />;
   }
   const secciones = combinaciones[combinacionActual]?.secciones;
   const combinationChange = (combinationId) => {

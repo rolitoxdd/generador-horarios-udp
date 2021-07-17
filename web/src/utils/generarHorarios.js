@@ -1,6 +1,9 @@
 import probarHorario from "./probarHorario";
 
 const generarHorarios = (ramos) => {
+  if (!ramos) {
+    return [];
+  }
   const cantidadSecciones = ramos.map((r) => r.length);
   const N = cantidadSecciones.reduce((acum, n) => acum * n, 1);
   const combinaciones = [];

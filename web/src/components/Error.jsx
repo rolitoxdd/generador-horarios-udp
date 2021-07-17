@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
-const Error = () => {
+const Error = ({ mensaje, estilo = {} }) => {
   const [segundos, setSegundos] = useState(5);
   // console.log(segundos);
   useEffect(() => {
@@ -20,7 +20,7 @@ const Error = () => {
         <Redirect to="/" />
       ) : (
         <div>
-          <h3>Debes seleccionar al menos 1 ramo</h3>
+          <h1 style={estilo}>{mensaje}</h1>
           <p>
             Serás redirigido a la{" "}
             <Link to="/" className="link-info">
@@ -34,7 +34,7 @@ const Error = () => {
             >
               {segundos}
             </span>{" "}
-            segundos
+            segundo{segundos === 1 ? "" : "s"}
           </p>
         </div>
       )}
