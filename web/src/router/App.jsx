@@ -6,7 +6,7 @@ import Horarios from "../views/Horarios";
 
 function App() {
   return (
-    <div className="App" style={{ overflow: "hidden" }}>
+    <div className="App" style={{ overflowX: "hidden" }}>
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />

@@ -22,7 +22,7 @@ const Horarios = () => {
   const combinationChange = (combinationId) => {
     setCombinacionActual(Number.parseInt(combinationId));
   };
-  console.log(combinaciones.map((c) => c.horario));
+  // console.log(combinaciones.map((c) => c.horario));
   return (
     <>
       <div
@@ -76,7 +76,7 @@ const Horarios = () => {
             (Los horarios están ordenados según el numero de ventanas)
           </p>
         </div>
-        <div className="col-4 pe-4">
+        <div className="col-4 pe-4" style={{ paddingLeft: 0 }}>
           <div className="list-group">
             {secciones.map((s) => (
               <InfoSeccion

@@ -15,7 +15,6 @@ const InfoSeccion = ({
   // const seccionesPosibles = combinacionesPosibles.map(
   //   (c) => c.secciones[indice]
   // );
-  console.log(combinacionesPosibles);
   return (
     <span
       className="list-group-item list-group-item-action flex-column align-items-start"
@@ -43,7 +42,7 @@ const InfoSeccion = ({
           </select>
         </span>
       </div>
-      <p className="mb-1 text-muted">{seccion.profesor || "Desconocido"}</p>
+      {/* <p className="mb-1 text-muted">{seccion.profesor || "Desconocido"}</p> */}
       <small className="">{seccion.id_ramo}</small>
     </span>
   );

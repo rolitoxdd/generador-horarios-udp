@@ -12,6 +12,19 @@ const Horario = ({ horario }) => {
     "18:50 - 20:10": "H",
     "20:15 - 21:35": "I",
   };
+  const bloqueA = Object.values(horario).map((d) => d.A);
+  if (bloqueA.every((x) => !x)) {
+    delete bloques["08:30 - 09:50"];
+  }
+  const bloqueH = Object.values(horario).map((d) => d.H);
+  const bloqueI = Object.values(horario).map((d) => d.I);
+  if (bloqueH.every((x) => !x)) {
+    delete bloques["18:50 - 20:10"];
+    if (bloqueI.every((x) => !x)) {
+      delete bloques["20:15 - 21:35"];
+    }
+  }
+
   return (
     <div className="container-xl">
       <table className="table table-hover">

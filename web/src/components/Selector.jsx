@@ -7,7 +7,6 @@ const Selector = ({
   handleSelectorChange,
   handleSelectorDelete,
 }) => {
-  console.log(ramos);
   return (
     <div className="selector">
       <select
@@ -20,16 +19,20 @@ const Selector = ({
         <option value="" disabled>
           Elige un ramo
         </option>
-        {ramos.map((r) => (
-          <option
-            value={r[0]}
-            key={r[0]}
-            disabled={
-              ramosTomados.includes(r[0]) && ramosTomados[indice] !== r[0]
-            }
-          >
-            {r[1]} - {r[0]}
-          </option>
+        {Object.keys(ramos).map((g) => (
+          <optgroup label={g} key={g}>
+            {ramos[g].map((r) => (
+              <option
+                value={r[0]}
+                key={r[0]}
+                disabled={
+                  ramosTomados.includes(r[0]) && ramosTomados[indice] !== r[0]
+                }
+              >
+                {r[1]} - {r[0]}
+              </option>
+            ))}
+          </optgroup>
         ))}
       </select>
 
