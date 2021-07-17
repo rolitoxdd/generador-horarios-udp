@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import informatica from "../assets/informatica.json";
 import Selector from "../components/Selector";
+import informatica from "../assets/informatica.json";
+import cfg from "../assets/cfg.json";
+
+const ramosTotales = { ...informatica, ...cfg };
 
 const Home = () => {
   const [ramos, setRamos] = useState([]);
@@ -10,8 +13,8 @@ const Home = () => {
   const history = useHistory();
 
   useEffect(() => {
-    let opcionesRamos = Object.keys(informatica);
-    opcionesRamos = opcionesRamos.map((p) => [p, informatica[p][0].nombre]);
+    let opcionesRamos = Object.keys(ramosTotales);
+    opcionesRamos = opcionesRamos.map((p) => [p, ramosTotales[p][0].nombre]);
     setRamos(opcionesRamos);
   }, []);
 
@@ -30,7 +33,7 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push("/horarios", {
-      ramos: ramosTomados.map((r) => informatica[r]),
+      ramos: ramosTomados.map((r) => ramosTotales[r]),
     });
   };
 

@@ -18,6 +18,16 @@ def parsear_horario(horario_texto):
             "18:50 - 20:10": "H",
             "20:15 - 21:35": "I"
         }
+        bloques_extendidos = {
+            "08:30 - 11:20": "AB",
+            "10:00 - 12:50": "BC",
+            "11:30 - 14:20": "CD",
+            "13:00 - 15:50": "DE",
+            "14:30 - 17:20": "EF",
+            "16:00 - 18:45": "FG",
+            "17:25 - 20:10": "GH",
+            "18:50 - 21:35": "HI"
+        }
         horarios_evento = horario_texto.split(";")
         horarios_evento = [[x[:-14].strip(), x[-13:]] for x in horarios_evento]
         for horario in horarios_evento:
@@ -28,6 +38,15 @@ def parsear_horario(horario_texto):
                     respuesta.extend([[h, bloque] for h in horarios])
                 else:
                     respuesta.extend([[horario[0], bloque]])
+            else:
+                bloquex = bloques_extendidos[horario[1]]
+                if len(horario[0]) > 2:
+                    horarios = horario[0].split()
+                    respuesta.extend([[h, bloquex[0]] for h in horarios])
+                    respuesta.extend([[h, bloquex[1]] for h in horarios])
+                else:
+                    respuesta.extend([[horario[0], bloquex[0]]])
+                    respuesta.extend([[horario[0], bloquex[1]]])
 
     return respuesta
 

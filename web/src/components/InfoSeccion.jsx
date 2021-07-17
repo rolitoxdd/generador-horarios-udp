@@ -26,7 +26,7 @@ const InfoSeccion = ({
         <span>
           {/* <small className="me-2">{seccion.seccion}</small> */}
           <select
-            className="text-muted"
+            className="form-select mb-2"
             defaultValue={combinacionActual}
             onChange={(e) => {
               handleCombinationChange(e.target.value);
@@ -36,7 +36,7 @@ const InfoSeccion = ({
               const s = combinacion.secciones[idx];
               return (
                 <option value={indiceCombinacion} key={s?.paquete}>
-                  {s?.seccion}
+                  {s?.seccion} {s?.profesor ? `-${s?.profesor}` : ""}
                 </option>
               );
             })}

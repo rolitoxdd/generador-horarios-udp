@@ -88,7 +88,7 @@ const Horarios = () => {
               />
             ))}
           </div>
-          <Link to="/" class="btn btn-outline-dark mt-3">
+          <Link to="/" className="btn btn-outline-dark mt-3">
             Volver al inicio
           </Link>
         </div>
