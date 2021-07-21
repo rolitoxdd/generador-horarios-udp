@@ -26,7 +26,9 @@ def parsear_horario(horario_texto):
             "14:30 - 17:20": "EF",
             "16:00 - 18:45": "FG",
             "17:25 - 20:10": "GH",
-            "18:50 - 21:35": "HI"
+            "18:50 - 21:30": "HI",
+            "18:50 - 21:35": "HI",
+
         }
         horarios_evento = horario_texto.split(";")
         horarios_evento = [[x[:-14].strip(), x[-13:]] for x in horarios_evento]
@@ -76,6 +78,13 @@ def parsear_csv(texto):
                                       for h in parsear_horario(datos_evento["horarios"])]]
 
         if linea[0] not in ramos:
+            if "AYUD" in linea[5]:
+                datos_evento["ayudante"] = linea[7]
+            elif "LAB" in linea[5]:
+                datos_evento["profesor_lab"] = linea[7]
+            elif "profesor" not in datos_evento or datos_evento["profesor"] == "":
+                datos_evento["profesor"] = linea[7]
+
             ramos[linea[0]] = [datos_evento]
         else:
             if [seccion for seccion in ramos[linea[0]] if seccion["paquete"] == datos_evento["paquete"]]:
