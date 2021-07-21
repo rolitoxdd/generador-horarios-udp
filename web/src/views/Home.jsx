@@ -20,7 +20,7 @@ const Home = () => {
           background: "#efefef",
         }}
       >
-        <h1>xd</h1>
+        {/* <h1>xd</h1> */}
         <div>
           <Link to="/selector" className="btn btn-outline-primary mt-2 mb-3">
             Generador de horarios
