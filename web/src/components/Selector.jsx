@@ -1,4 +1,4 @@
-import "../assets/styles/Selector.css";
+import {selector, selectorButton} from "../assets/styles/Selector.module.css";
 
 const Selector = ({
   ramosTomados,
@@ -8,7 +8,7 @@ const Selector = ({
   handleSelectorDelete,
 }) => {
   return (
-    <div className="selector">
+    <div className={selector}>
       <select
         className="form-select mb-3 me-2"
         name={`ramo-${ramosTomados.length}`}
@@ -37,6 +37,7 @@ const Selector = ({
       </select>
 
       <button
+        className={selectorButton}
         type="button"
         className="text-center btn btn-outline-danger me-2"
         onClick={(e) => handleSelectorDelete(e, indice)}

@@ -1,6 +1,7 @@
 //hooks
 import { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import useRamos from "../hooks/useRamos";
 
 //components
@@ -9,7 +10,7 @@ import Selector from "../components/Selector";
 const Home = () => {
   const [ramos, , ramosTotales] = useRamos();
   const [ramosTomados, setRamosTomados] = useState([""]);
-  const history = useHistory();
+  const router = useRouter()
 
   const handleSelectorChange = (e, index) =>
     setRamosTomados([
@@ -25,9 +26,11 @@ const Home = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/horarios", {
-      ramos: ramosTomados.map((r) => ramosTotales[r]),
-    });
+    router.push("/horarios")
+    localStorage.clear()
+    localStorage.setItem(
+      "ramos",JSON.stringify(ramosTomados.map((r) => ramosTotales[r])),
+    )
   };
 
   return (
@@ -58,8 +61,11 @@ const Home = () => {
           <button className="btn btn-outline-success me-3">
             Generar Horarios
           </button>
-          <Link className="btn btn-outline-warning" to="/">
+          <Link href="/">
+            <a className="btn btn-outline-warning">
+
             Volver al inicio
+            </a>
           </Link>
         </form>
       </div>

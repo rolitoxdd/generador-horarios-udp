@@ -3,7 +3,7 @@ import { useState } from "react";
 import useRamos from "../hooks/useRamos";
 
 // components
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Horario from "../components/Horario";
 import Selector from "../components/Selector";
 
@@ -103,8 +103,8 @@ const Simulador = () => {
                           seccionesTomadas[i]
                         ) !== -1
                           ? ramosTotales[ramosTomados[i]].indexOf(
-                              seccionesTomadas[i]
-                            )
+                            seccionesTomadas[i]
+                          )
                           : ""
                       }
                       key={ramosTomados[i]}
@@ -142,8 +142,10 @@ const Simulador = () => {
                 + Otro Ramo
               </button>
             </div>
-            <Link to="/" className="btn btn-outline-warning mt-3">
-              Volver al inicio
+            <Link href="/" >
+              <a className="btn btn-outline-warning mt-3">
+                Volver al inicio
+              </a>
             </Link>
           </div>
         }

@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
-import { Redirect, Link } from "react-router-dom";
+import Link from 'next/link'
+import Router from "next/router";
 const Error = ({ mensaje, estilo = {} }) => {
   const [segundos, setSegundos] = useState(5);
   // console.log(segundos);
   useEffect(() => {
     const timeoutID = setTimeout(() => setSegundos(segundos - 1), 1000);
-    return () => clearTimeout(timeoutID);
+    if (segundos==0) Router.push("/")
+    return () => {
+      clearTimeout(timeoutID)
+    };
   });
   return (
     <div
@@ -16,15 +20,14 @@ const Error = ({ mensaje, estilo = {} }) => {
         justifyContent: "center",
       }}
     >
-      {segundos === 0 ? (
-        <Redirect to="/" />
-      ) : (
         <div>
           <h1 style={estilo}>{mensaje}</h1>
           <p>
             Serás redirigido a la{" "}
-            <Link to="/" className="link-info">
-              página principal
+            <Link href="/" className="link-info">
+              <a >
+                página principal
+              </a>
             </Link>
             {" en "}
             <span
@@ -37,7 +40,6 @@ const Error = ({ mensaje, estilo = {} }) => {
             segundo{segundos === 1 ? "" : "s"}
           </p>
         </div>
-      )}
     </div>
   );
 };

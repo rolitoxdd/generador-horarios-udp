@@ -1,5 +1,5 @@
-import { useHistory, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 import Horario from "../components/Horario";
 import InfoSeccion from "../components/InfoSeccion";
@@ -8,18 +8,25 @@ import generarHorarios from "../utils/generarHorarios";
 import ordenarHorariosSegunVentanas from "../utils/ordenarHorariosSegunVentana";
 
 const Horarios = () => {
-  const history = useHistory();
-  const ramos = history.location.state;
+  let [ramos, setRamos] = useState([])
   const [combinacionActual, setCombinacionActual] = useState(0);
   const [combinaciones, setCombinaciones] = useState([]);
   useEffect(() => {
-    setCombinaciones(
-      ordenarHorariosSegunVentanas(
-        generarHorarios(ramos?.ramos.filter((x) => x))
-      )
-    );
-  }, []);
+
+    ramos = setRamos(JSON.parse(window.localStorage.getItem("ramos")));
+  },[])
+  useEffect(() => {
+    console.log('ramos',ramos)
+
+      setCombinaciones(
+        ordenarHorariosSegunVentanas(
+          generarHorarios(ramos?.filter((x) => x))
+        )
+      );
+  }, [ramos]);
+  console.log('ramos',ramos)
   if (ramos && combinaciones.length === 0) {
+    console.log(combinaciones)
     return (
       <div
         style={{
@@ -36,7 +43,7 @@ const Horarios = () => {
       </div>
     );
   }
-  if (!ramos || ramos.ramos.every((x) => !x) || combinaciones.length === 0) {
+  if (!ramos || ramos.every((x) => !x) || combinaciones.length === 0) {
     return <Error mensaje="Debes seleccionar al menos 1 ramo" />;
   }
   const secciones = combinaciones[combinacionActual]?.secciones;
@@ -114,13 +121,18 @@ const Horarios = () => {
               />
             ))}
           </div>
-          <Link to="/" className="btn btn-outline-warning mt-3 me-3">
+          <Link href="/" >
+            <a className="btn btn-outline-warning mt-3 me-3">
+
             Volver al inicio
+            </a>
           </Link>
-          <Link to="/selector" className="btn btn-outline-dark mt-3">
+          <Link href="/selector" >
+            <a className="btn btn-outline-dark mt-3">
             Volver al selector
             <br />
             de ramos
+            </a>
           </Link>
         </div>
       </div>

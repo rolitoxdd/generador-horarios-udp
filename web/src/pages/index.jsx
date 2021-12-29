@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 const Home = () => {
   return (
     <div
@@ -20,16 +20,20 @@ const Home = () => {
           background: "#efefef",
         }}
       >
-        {/* <h1>xd</h1> */}
         <div>
-          <Link to="/selector" className="btn btn-outline-primary mt-2 mb-3">
-            Generador de horarios
+          <Link href="/selector" >
+            <a className="btn btn-outline-primary mt-2 mb-3">
+              Generador de horarios
+            </a>
           </Link>
         </div>
 
         <div>
-          <Link to="/simulador" className="btn btn-outline-secondary">
-            Simulador de horarios
+          <Link href="/simulador" >
+            <a className="btn btn-outline-secondary">
+
+              Simulador de horarios
+            </a>
           </Link>
         </div>
       </div>
