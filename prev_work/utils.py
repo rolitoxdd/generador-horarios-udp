@@ -91,7 +91,8 @@ def parsear_csv(texto):
                 datos_seccion = [seccion for seccion in ramos[linea[0]]
                                  if seccion["seccion"] == datos_evento["seccion"]][0]
                 if datos_evento["horarios"][0] not in datos_seccion["horarios"]:
-                    datos_seccion["horarios"].extend(datos_evento["horarios"])
+                    datos_seccion["horarios"].extend(
+                        datos_evento["horarios"])
                 # ramos[linea[0]].append(datos_evento)
                 if "AYUD" in linea[5]:
                     datos_seccion["ayudante"] = linea[7]
