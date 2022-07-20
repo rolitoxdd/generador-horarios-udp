@@ -6316,21 +6316,14 @@
       "profesor": "POBLETE JAVIERA FRANCISCA",
       "horario": {
         "MI": {
-          "16:00-17:20": "CÁTEDRA INGLÉS 01"
-        },
-        "14:30-15:50;": {
-          "16:00-17:20": "CÁTEDRA INGLÉS 01"
+          "16:00-17:20": "CÁTEDRA INGLÉS 01",
+          "14:30-15:50": "CÁTEDRA INGLÉS 01"
         }
       },
       "horarios": [
         [
           "MI",
-          "F",
-          "CÁTEDRA INGLÉS 01"
-        ],
-        [
-          "14:30-15:50;",
-          "F",
+          "E",
           "CÁTEDRA INGLÉS 01"
         ],
         [
@@ -6738,29 +6731,21 @@
       "vacantes_paquete": 30,
       "profesor": "ARCE CARLOS ANDRES",
       "horario": {
-        "VI": {
-          "13:00-14:20": "CÁTEDRA INGLÉS 14"
-        },
-        "08:30-09:50;": {
-          "13:00-14:20": "CÁTEDRA INGLÉS 14"
-        },
         "MA": {
+          "08:30-09:50": "CÁTEDRA INGLÉS 14"
+        },
+        "VI": {
           "13:00-14:20": "CÁTEDRA INGLÉS 14"
         }
       },
       "horarios": [
         [
-          "VI",
-          "D",
-          "CÁTEDRA INGLÉS 14"
-        ],
-        [
-          "08:30-09:50;",
-          "D",
-          "CÁTEDRA INGLÉS 14"
-        ],
-        [
           "MA",
+          "A",
+          "CÁTEDRA INGLÉS 14"
+        ],
+        [
+          "VI",
           "D",
           "CÁTEDRA INGLÉS 14"
         ]
@@ -6778,29 +6763,21 @@
       "vacantes_paquete": 30,
       "profesor": "ARCE CARLOS ANDRES",
       "horario": {
-        "VI": {
-          "14:30-15:50": "CÁTEDRA INGLÉS 15"
-        },
-        "08:30-09:50;": {
-          "14:30-15:50": "CÁTEDRA INGLÉS 15"
-        },
         "MI": {
+          "08:30-09:50": "CÁTEDRA INGLÉS 15"
+        },
+        "VI": {
           "14:30-15:50": "CÁTEDRA INGLÉS 15"
         }
       },
       "horarios": [
         [
-          "VI",
-          "E",
-          "CÁTEDRA INGLÉS 15"
-        ],
-        [
-          "08:30-09:50;",
-          "E",
-          "CÁTEDRA INGLÉS 15"
-        ],
-        [
           "MI",
+          "A",
+          "CÁTEDRA INGLÉS 15"
+        ],
+        [
+          "VI",
           "E",
           "CÁTEDRA INGLÉS 15"
         ]
@@ -7394,29 +7371,21 @@
       "vacantes_paquete": 30,
       "profesor": "ARAOS JENNY FABIOLA",
       "horario": {
-        "VI": {
-          "14:30-15:50": "CÁTEDRA INGLÉS 32"
-        },
-        "13:00-14:20;": {
-          "14:30-15:50": "CÁTEDRA INGLÉS 32"
-        },
         "LU": {
+          "13:00-14:20": "CÁTEDRA INGLÉS 32"
+        },
+        "VI": {
           "14:30-15:50": "CÁTEDRA INGLÉS 32"
         }
       },
       "horarios": [
         [
-          "VI",
-          "E",
-          "CÁTEDRA INGLÉS 32"
-        ],
-        [
-          "13:00-14:20;",
-          "E",
-          "CÁTEDRA INGLÉS 32"
-        ],
-        [
           "LU",
+          "D",
+          "CÁTEDRA INGLÉS 32"
+        ],
+        [
+          "VI",
           "E",
           "CÁTEDRA INGLÉS 32"
         ]
@@ -7754,29 +7723,21 @@
       "vacantes_paquete": 30,
       "profesor": "TORRES OSMAN LUCIANO",
       "horario": {
-        "MA": {
-          "13:00-14:20": "CÁTEDRA INGLES 42"
-        },
-        "10:00-11:20;": {
-          "13:00-14:20": "CÁTEDRA INGLES 42"
-        },
         "JU": {
+          "10:00-11:20": "CÁTEDRA INGLES 42"
+        },
+        "MA": {
           "13:00-14:20": "CÁTEDRA INGLES 42"
         }
       },
       "horarios": [
         [
-          "MA",
-          "D",
-          "CÁTEDRA INGLES 42"
-        ],
-        [
-          "10:00-11:20;",
-          "D",
-          "CÁTEDRA INGLES 42"
-        ],
-        [
           "JU",
+          "B",
+          "CÁTEDRA INGLES 42"
+        ],
+        [
+          "MA",
           "D",
           "CÁTEDRA INGLES 42"
         ]
@@ -7986,29 +7947,21 @@
       "vacantes_paquete": 30,
       "profesor": "ACUÑA SYLVIA VICTORIA",
       "horario": {
-        "VI": {
-          "17:25-18:45": "CÁTEDRA INGLES 49"
-        },
-        "16:00-17:20;": {
-          "17:25-18:45": "CÁTEDRA INGLES 49"
-        },
         "LU": {
+          "16:00-17:20": "CÁTEDRA INGLES 49"
+        },
+        "VI": {
           "17:25-18:45": "CÁTEDRA INGLES 49"
         }
       },
       "horarios": [
         [
-          "VI",
-          "G",
-          "CÁTEDRA INGLES 49"
-        ],
-        [
-          "16:00-17:20;",
-          "G",
-          "CÁTEDRA INGLES 49"
-        ],
-        [
           "LU",
+          "F",
+          "CÁTEDRA INGLES 49"
+        ],
+        [
+          "VI",
           "G",
           "CÁTEDRA INGLES 49"
         ]
