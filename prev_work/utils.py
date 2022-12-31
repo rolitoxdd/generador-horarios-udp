@@ -13,6 +13,7 @@ def parsear_horario(horario_texto):
             "11:30 - 12:50": "C",
             "13:00 - 14:20": "D",
             "14:30 - 15:50": "E",
+            "14:30 - 15:20": "E",
             "16:00 - 17:20": "F",
             "17:25 - 18:45": "G",
             "18:50 - 20:10": "H",
@@ -34,6 +35,8 @@ def parsear_horario(horario_texto):
         horarios_evento = horario_texto.split(";")
         horarios_evento = [[x[:-14].strip(), x[-13:]] for x in horarios_evento]
         for horario in horarios_evento:
+            if horario[1].startswith("U "):
+                horario[1] = "18:50 - 20:10"
             if horario[1] in bloques:
                 bloque = bloques[horario[1]]
                 if len(horario[0]) > 2:
